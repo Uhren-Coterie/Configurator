@@ -14,14 +14,20 @@
 
 .configurator {
   position: fixed;
-  top: 24px;
-  right: 24px;
+  top: 45px;
+  right: 70px;
   bottom: 25vh;
   width: 360px;
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  align-items: center; /* Added for alignment */
+}
+
+.configurator__section__title {
+  color: black; /* Change font color to black */
+  font-weight: bold; /* Make section titles bold */
 }
 
 .configurator__section__values {
@@ -31,6 +37,8 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 10px 0;
+  
+  color: black; /* Change font color to black */
 }
 
 .item {
@@ -60,18 +68,18 @@
   text-align: center;
   font-weight: bold;
   font-size: 6px;
-  color: #aaa;
+  color: grey; /* Change font color to grey */
   text-transform: capitalize;
 }
 .item.item--active .item__label {
-  color: white;
+  color: black; /* Change active item label color to black */
 }
 
-
-  .item__image {
-    width: 30px;
-    height: 30x;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-bottom: 10px;
-  }
+.item__image {
+  width: 30px;
+  height: 30px; /* Corrected typo */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}

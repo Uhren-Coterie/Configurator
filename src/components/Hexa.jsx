@@ -32,7 +32,7 @@ const Hexa = (props) => {
   const OuterIndex = parseInt(OuterMaterial.replace('Outer', '')) - 1;
 
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} >
       <mesh geometry={nodes.InnerShell.geometry}>
         <meshStandardMaterial map={innerTextures[innerIndex].map} side={THREE.DoubleSide} />
       </mesh>
