@@ -14,11 +14,11 @@
 
 .configurator {
   position: fixed;
-  top: 45px;
+  top: 20px;
   right: 70px;
   bottom: 25vh;
   width: 360px;
-  padding: 24px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -36,8 +36,8 @@
   gap: 8px;
   align-items: center;
   flex-wrap: wrap;
-  padding: 10px 0;
-  
+  padding: 10px;
+  font-size: 10px;
   color: black; /* Change font color to black */
 }
 
@@ -82,4 +82,31 @@
   border-radius: 8px;
   margin-bottom: 10px;
   margin-top: 8px;
+}
+
+.configurator__buttons button {
+  background-color: #0078D7; /* Green background */
+  border: none; /* Remove border */
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding */
+  text-align: center; /* Centered text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s; /* Transition effect */
+  cursor: pointer;
+}
+
+.configurator__buttons button:hover {
+  background-color: rgba(255, 255, 255, 0.13); /* White background */
+  color: black; /* Black text */
+}
+
+.logo {
+  position: absolute;
+  top: 1px;
+  left: -950px;
+  width: 80px;
+  height: 80px;
 }

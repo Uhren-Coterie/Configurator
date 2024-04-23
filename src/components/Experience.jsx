@@ -1,7 +1,9 @@
+import React, { Suspense } from 'react';
 import {
   MeshReflectorMaterial,
   PresentationControls,
   Stage,
+  Html
 } from "@react-three/drei";
 import Hexa from "./Hexa";
 import { useThree, useFrame } from '@react-three/fiber';
@@ -17,8 +19,28 @@ const Experience = () => {
     camera.lookAt(new Vector3(0.09, -0.03, -0.02)); // Adjust the lookAt position
   });
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    whiteSpace: 'nowrap',
+    '@media (max-width: 768px)': { // Tablet and below
+      fontSize: '18px',
+    },
+    '@media (max-width: 480px)': { // Mobile and below
+      fontSize: '14px',
+    }
+  };
+
   return (
-    <>
+    <Suspense fallback={
+      <Html>
+        <div style={style}>
+          Loading Accessory...
+        </div>
+      </Html>
+    }>
       <PresentationControls
         speed={1.5}
         global
@@ -29,7 +51,7 @@ const Experience = () => {
           <Hexa />
         </Stage>
       </PresentationControls>
-    </>
+    </Suspense>
   );
 };
 

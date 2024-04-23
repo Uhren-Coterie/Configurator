@@ -3,8 +3,9 @@ import { useGLTF, useTexture } from '@react-three/drei'
 import * as THREE from 'three'
 import { useCustomization } from "../contexts/Customization";
 
-const Hexa = (props) => {
-  const { nodes } = useGLTF('./models/Hexa.glb')
+const Hexa = ({ onModelLoad, ...props }) => { // Add onModelLoad prop
+  const { nodes } = useGLTF('./models/Hexa.glb', undefined, undefined, undefined, undefined, onModelLoad); // Pass onModelLoad to useGLTF
+
   const { innerMaterial, OuterMaterial } = useCustomization();
 
   // Define inner textures
