@@ -1,10 +1,20 @@
-import React from 'react'
-import { useGLTF, useTexture } from '@react-three/drei'
+import React, { useEffect } from 'react'
+import { useTexture, useProgress } from '@react-three/drei'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import * as THREE from 'three'
 import { useCustomization } from "../contexts/Customization";
+import { useLoader } from '@react-three/fiber'
 
-const Hexa = ({ onModelLoad, ...props }) => { // Add onModelLoad prop
-  const { nodes } = useGLTF('./models/Hexa.glb', undefined, undefined, undefined, undefined, onModelLoad); // Pass onModelLoad to useGLTF
+const Hexa = ({ onModelLoad, ...props }) => {
+  const { active, progress, total } = useProgress();
+  const gltf = useLoader(GLTFLoader, './models/Hexa.glb');
+  const nodes = gltf.nodes;
+
+  useEffect(() => {
+    if (active && onModelLoad) {
+      onModelLoad(progress / total);
+    }
+  }, [active, progress, total, onModelLoad]);
 
   const { innerMaterial, OuterMaterial } = useCustomization();
 
@@ -43,7 +53,5 @@ const Hexa = ({ onModelLoad, ...props }) => { // Add onModelLoad prop
     </group>
   );
 }
-
-useGLTF.preload('./models/Hexa.glb')
 
 export default Hexa;

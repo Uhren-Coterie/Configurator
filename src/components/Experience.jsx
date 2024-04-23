@@ -1,3 +1,4 @@
+// Experience.jsx
 import React, { Suspense } from 'react';
 import {
   MeshReflectorMaterial,
@@ -33,11 +34,16 @@ const Experience = () => {
     }
   };
 
+  const handleModelLoad = (event) => {
+    const progress = event.loaded / event.total;
+    console.log(`Loading progress: ${progress * 100}%`);
+  };
+
   return (
     <Suspense fallback={
       <Html>
         <div style={style}>
-          Loading Accessory...
+          Loading, please wait...
         </div>
       </Html>
     }>
@@ -48,7 +54,7 @@ const Experience = () => {
         rotation={[Math.PI / 8, Math.PI / 4, 0]}
       >
         <Stage background="#ffffff" intensity={0.001} shadows={false}>
-          <Hexa />
+          <Hexa onModelLoad={handleModelLoad} />
         </Stage>
       </PresentationControls>
     </Suspense>
