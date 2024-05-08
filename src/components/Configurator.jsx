@@ -44,7 +44,7 @@ const Configurator = () => {
       <img src={logo} alt="Logo" className="logo" />
             <div className="configurator__buttons">
         
-        <button onClick={() => {/* add to cart logic */}}>Select and Add to Cart</button>
+        <button onClick={() => { window.location.href = 'https://8188c3-40.myshopify.com/products/hexa-custom-order'; }}>Select and Add to Cart</button>
       
         <button onClick={() => { window.location.href = 'https://urhencoterie.framer.website/products/hexagon-dream'; }}>Go Back</button>
       
